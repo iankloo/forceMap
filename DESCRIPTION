@@ -1,0 +1,15 @@
+Package: forceMap
+Type: Package
+Title: D3 Forcemaps in R
+Version: 0.0.0.9000
+Authors@R: person("Ian", "Kloo", email="iankloo@gmail.com", role=c("aut", "cre"))
+Description: A simple htmlwidget connecting R to Aaron Bycoffe's world map with
+    force layout.
+Depends: R (>= 3.3.1)
+Imports: countrycode,
+    jsonlite,
+    htmlwidgets
+License: None
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 5.0.1

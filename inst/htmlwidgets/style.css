@@ -1,0 +1,17 @@
+circle {
+  stroke-width: 1;
+  stroke: #555;
+}
+circle.NorthAmerica { fill: #f3797f; }
+circle.SouthAmerica { fill: #80a1b6; }
+circle.Europe { fill: #9fad9e; }
+circle.Asia { fill: #9c8c9f; }
+circle.Africa { fill: #fab585; }
+circle.Oceania { fill: #b28d69; }
+text {
+  fill: #555;
+  font-family: sans-serif;
+  font-size: 9;
+  pointer-events: none;
+  text-anchor: middle;
+}

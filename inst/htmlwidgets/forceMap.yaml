@@ -1,0 +1,8 @@
+dependencies:
+  - name: d3
+    version: 2
+    src: htmlwidgets
+    stylesheet: style.css
+    script: 
+      - d3.min.js
+      - jquery.min.js
