@@ -2,12 +2,12 @@ circle {
   stroke-width: 1;
   stroke: #555;
 }
-circle.NorthAmerica { fill: #f3797f; }
+circle.NorthernAmerica { fill: #f3797f; }
 circle.SouthAmerica { fill: #80a1b6; }
-circle.Europe { fill: #9fad9e; }
-circle.Asia { fill: #9c8c9f; }
-circle.Africa { fill: #fab585; }
-circle.Oceania { fill: #b28d69; }
+circle.EasternEurope { fill: #9fad9e; }
+circle.EasternAsia { fill: #9c8c9f; }
+circle.WesternEurope { fill: #fab585; }
+circle.Africa { fill: #b28d69; }
 text {
   fill: #555;
   font-family: sans-serif;

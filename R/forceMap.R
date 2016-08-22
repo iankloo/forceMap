@@ -7,12 +7,13 @@
 #' @export
 forceMap <- function(data, width = NULL, height = NULL, elementId = NULL) {
 
-  
+  data <- data
   #create json object for use in JS  
-  countryDF$alias <- countrycode::countrycode(countryDF$name, origin='country.name', destination='iso3c')
-  countryDF$continent <- countrycode::countrycode(countryDF$name, origin='country.name', destination='continent')
+  data$alias <- countrycode::countrycode(data$name, origin='country.name', destination='ioc')
+  data$continent <- countrycode::countrycode(data$name, origin='country.name', destination='region')
+  data$continent <- gsub(' ','',data$continent)
   
-  x <- jsonlite::toJSON(countryDF)
+  x <- jsonlite::toJSON(data)
 
   # create widget
   htmlwidgets::createWidget(
