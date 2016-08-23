@@ -8,6 +8,10 @@ The idea is to create a map-like visualization that reflects differences in nume
 
 If you are interested in a method that maintains strict geographic integrity, use choropleth maps (boring...).
 
+## Known Issues
+1. Doesn't display great in R Studio windows - adjust sizing if you want to visualize it there.  Otherwise, just use a browser.
+2. Some countries not in included database, which causes errors. (looking to fix soon)
+
 ## Install
 ```{r}
 require(devtools)
