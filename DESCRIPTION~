@@ -5,7 +5,7 @@ Version: 0.0.0.9000
 Authors@R: person("Ian", "Kloo", email="iankloo@gmail.com", role=c("aut", "cre"))
 Description: A simple htmlwidget connecting R to Aaron Bycoffe's world map with
     force layout.
-Depends:
+Depends: R
 Imports: countrycode,
     jsonlite,
     htmlwidgets

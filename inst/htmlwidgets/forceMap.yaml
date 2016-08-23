@@ -3,6 +3,7 @@ dependencies:
     version: 2
     src: htmlwidgets
     stylesheet: style.css
-    script: 
+    script:
       - d3.min.js
       - jquery.min.js
+      - d3.tip.js

@@ -1,6 +1,7 @@
 circle {
   stroke-width: 1;
   stroke: #555;
+  opacity: 0.75;
 }
 circle.NorthernAmerica { fill: #f3797f; }
 circle.SouthAmerica { fill: #80a1b6; }
@@ -14,4 +15,13 @@ text {
   font-size: 9;
   pointer-events: none;
   text-anchor: middle;
+}
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  font-size: 8pt;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
 }
