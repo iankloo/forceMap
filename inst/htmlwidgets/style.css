@@ -4,11 +4,12 @@ circle {
   opacity: 0.75;
 }
 circle.NorthernAmerica { fill: #f3797f; }
-circle.SouthAmerica { fill: #80a1b6; }
-circle.EasternEurope { fill: #9fad9e; }
-circle.EasternAsia { fill: #9c8c9f; }
-circle.WesternEurope { fill: #fab585; }
-circle.Africa { fill: #b28d69; }
+circle.SouthAmerica, circle.South-EasternAsia { fill: #80a1b6; }
+circle.EasternEurope, circle.CentralAmerica { fill: #9fad9e; }
+circle.EasternAsia, circle.SouthernAsia, circle.WesternAsia, circle.CentralAsia { fill: #9c8c9f; }
+circle.WesternEurope, circle.NorthernEurope, circle.SouthernEurope { fill: #fab585; }
+circle.NorthernAfrica, circle.SouthernAfrica, circle.MiddleAfrica, circle.WesternAfrica, circle.EasternAfrica { fill: #b28d69; }
+circle.AustraliaandNewZealand, circle.Polynesia, circle.Caribbean, circle.Melanesia, circle.Micronesia { fill: #78C0A8; }
 text {
   fill: #555;
   font-family: sans-serif;

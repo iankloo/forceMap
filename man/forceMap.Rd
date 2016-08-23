@@ -2,11 +2,30 @@
 % Please edit documentation in R/forceMap.R
 \name{forceMap}
 \alias{forceMap}
-\title{<Add Title>}
+\title{Create a d3 force directed map}
 \usage{
-forceMap(data, width = NULL, height = NULL, elementId = NULL)
+forceMap(data, minRadius = 10, maxRadius = 40, projScale = 2000,
+  width = NULL, height = NULL, elementId = NULL)
+}
+\arguments{
+\item{data}{A 2 column dataframe with a column called "names" with country names and another called "values" with the numeric values to be mapped.}
+
+\item{minRadius}{A number for the minimum radius of the svg circles}
+
+\item{maxRadius}{A number for the maximum radius of the svg circles}
+
+\item{projScale}{A number for the scale of the map projection}
+}
+\value{
+A d3 force directed map
 }
 \description{
-<Add Description>
+Create a d3 force directed map
+}
+\examples{
+##load sample data provided in package
+df <- forceMapSample
+forceMap(df, maxRadius = 45, projScale=1800)
+
 }
 
