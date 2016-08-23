@@ -22,6 +22,7 @@ library(forceMap)
 df <- forceMapSample
 forceMap(df)
 ```
+Note that there are on-hover events when rendered in both R and shiny (posted here statically).  If there are any other interactive features you can think of, let me know.
 
 ## Customize
 Because this is a force directed network, it is really hard to get the sizing policies working correctly.  The best way to get the sizing right is to mess around with the minRadius, maxRadius, and projScale parameters until you get something that looks right (and doesn't fly off the screen!).
