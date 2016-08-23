@@ -13,9 +13,10 @@ If you are interested in a method that maintains strict geographic integrity, us
 2. Some countries not in included database, which causes errors. (looking to fix soon)
 
 ## Install
+Will remove the key when I hear about license.
 ```{r}
 require(devtools)
-devtools::install_github("iankloo/forceMap")
+devtools::install_github("iankloo/forceMap", auth_token='3be765aac659fdd751d7ce49b89332b182916d0b')
 ```
 ## Use
 I included some sample data so you can see what kind of data definitely works.
