@@ -2,7 +2,7 @@
 
 ![Alt text](map.PNG)
 
-This is a package to create force directed maps in R.  Inspiration and code starting point credited to Aaron Bycoffe's block: http://bl.ocks.org/bycoffe/3230965.  Currently, Aaron has no license, so I've reached out to make sure I can use his code (even though it is barely the same).  I will make this a public repo when I hear from him.
+This is a package to create force directed maps in R.  Inspiration and code starting point (in D3) credited to Aaron Bycoffe's block: http://bl.ocks.org/bycoffe/3230965. 
 
 The idea is to create a map-like visualization that reflects differences in numeric values.  In practice, a circle is drawn for each country in a data set with the radius proportional to some value (population, gdp, etc. are common, but use your imagination!).  Then, each circle is tethered to a point on an imaginary map based on lat/lon coordinates.  Finally, a physical simulation lets the circles rearrange themselves.  This results in imperfect placement of countries, but everything should be in the right general area.
 
@@ -10,13 +10,12 @@ If you are interested in a method that maintains strict geographic integrity, us
 
 ## Known Issues
 1. Doesn't display great in R Studio windows - adjust sizing if you want to visualize it there.  Otherwise, just use a browser.
-2. Some countries not in included database, which causes errors. (looking to fix soon)
+2. Some countries not in the included database, which causes errors. (looking to fix soon)
 
 ## Install
-Will remove the key when I hear about license.
 ```{r}
 require(devtools)
-devtools::install_github("iankloo/forceMap", auth_token='3be765aac659fdd751d7ce49b89332b182916d0b')
+devtools::install_github("iankloo/forceMap")
 ```
 ## Use
 I included some sample data so you can see what kind of data definitely works.
