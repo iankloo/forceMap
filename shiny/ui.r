@@ -1,6 +1,5 @@
 library(shiny)
 library(forceMap)
-library(shinydashboard)
 
 shinyUI(fluidPage(
   forceMapOutput('map'),

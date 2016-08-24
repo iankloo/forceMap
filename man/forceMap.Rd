@@ -4,11 +4,14 @@
 \alias{forceMap}
 \title{Create a d3 force directed map}
 \usage{
-forceMap(data, minRadius = 10, maxRadius = 40, projScale = 2000,
-  width = NULL, height = NULL, elementId = NULL)
+forceMap(data, nameType = c("countryName", "iso3"), minRadius = 10,
+  maxRadius = 40, projScale = 2000, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{data}{A 2 column dataframe with a column called "names" with country names and another called "values" with the numeric values to be mapped.}
+
+\item{nameType}{The format of the name in your "names" column.  Either countryName or iso3 is permitted.}
 
 \item{minRadius}{A number for the minimum radius of the svg circles}
 

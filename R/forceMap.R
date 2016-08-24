@@ -1,6 +1,7 @@
 #' Create a d3 force directed map
 #'
 #' @param data A 2 column dataframe with a column called "names" with country names and another called "values" with the numeric values to be mapped.
+#' @param nameType The format of the name in your "names" column.  Either countryName or iso3 is permitted.
 #' @param minRadius A number for the minimum radius of the svg circles
 #' @param maxRadius A number for the maximum radius of the svg circles
 #' @param projScale A number for the scale of the map projection
@@ -13,7 +14,7 @@
 #' @import htmlwidgets
 #'
 #' @export
-forceMap <- function(data, minRadius = 10, maxRadius = 40, projScale = 2000, width = NULL, height = NULL, elementId = NULL) {
+forceMap <- function(data, nameType=c('countryName','iso3'), minRadius = 10, maxRadius = 40, projScale = 2000, width = NULL, height = NULL, elementId = NULL) {
   data <- data
   
   #checks on data
@@ -33,38 +34,51 @@ forceMap <- function(data, minRadius = 10, maxRadius = 40, projScale = 2000, wid
     stop('values column must be numeric')
   }
   
-  #create extra columns for lookup
-  data$alias <- countrycode::countrycode(data$names, origin='country.name', destination='ioc')
-  data$continent <- countrycode::countrycode(data$names, origin='country.name', destination='region')
+  suppressWarnings({
+    if(nameType == 'iso3'){
+      data$alias <- data$names
+      data$lookup <- countrycode::countrycode(data$names, origin='iso3c', destination='iso2c')
+      data$continent <- countrycode::countrycode(data$names, origin='iso3c', destination='region')
+      data$names <- countrycode::countrycode(data$names, origin='iso3c', destination='country.name')
+    } else if(nameType == 'countryName'){
+      data$alias <- countrycode::countrycode(data$names, origin='country.name', destination='iso3c')
+      data$lookup <- countrycode::countrycode(data$names, origin='country.name', destination='iso2c')
+      data$continent <- countrycode::countrycode(data$names, origin='country.name', destination='region')
+    } else{
+      stop('please provide nameType of either "countryName" or "iso3"')
+    }
+  })
+  
   data$continent <- gsub(' ','',data$continent)
+  data$continent[is.na(data$continent)] <- 'unknown'
   
   #more checks
   if(length(which(is.na(data$alias))) > 0){
     badRows <- which(is.na(data$alias))
-    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - is not a recognizable country', sep=''))
+    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - cannot find country iso3 code', sep=''))
   }
   
-  if(length(which(is.na(data$continent))) > 0){
-    badRows <- which(is.na(data$continent))
-    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - is not a recognizable country', sep=''))
+  if(length(which(is.na(data$lookup))) > 0){
+    badRows <- which(is.na(data$lookup))
+    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - cannot find country iso2 code', sep=''))
   }
-  
-  
+      
   geoNames <- geoNames
   
   for(i in 1:nrow(data)){
-    if(length(geoNames$lat[data$alias[i] == geoNames$country]) == 0) {
+    if(length(geoNames$lat[data$lookup[i] == geoNames$iso2c]) == 0) {
+      print(paste('error on line', i))
       data$lat[i] <-  NA
       data$lon[i] <-  NA
     } else{
-      data$lat[i] <-  geoNames$lat[data$alias[i] == geoNames$country]
-      data$lon[i] <-  geoNames$lon[data$alias[i] == geoNames$country]
+      data$lat[i] <-  geoNames$lat[data$lookup[i] == geoNames$iso2c]
+      data$lon[i] <-  geoNames$lon[data$lookup[i] == geoNames$iso2c]
     }
   }
   
   if(length(which(is.na(data$lat))) > 0){
     badRows <- which(is.na(data$lat))
-    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - is not a recognizable country', sep=''))
+    stop(paste('row(s)',badRows,' - ',data$names[badRows], ' - cannot find country lat/lon', sep=''))
   }
     
   #data <- data[is.na(data$lat) == FALSE,]
