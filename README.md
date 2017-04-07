@@ -1,6 +1,7 @@
 # forceMap
 
 ![Alt text](map.PNG)
+<img src = "map.PNG">
 
 This is a package to create force directed maps in R.  Inspiration and code starting point (in D3) credited to Aaron Bycoffe's block: http://bl.ocks.org/bycoffe/3230965. 
 
